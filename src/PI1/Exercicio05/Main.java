@@ -17,5 +17,35 @@ public class Main {
 
         System.out.print("Entre com m: ");
         int m = scanner.nextInt();
+
+        int d = 10;
+        while (d < 0 || d > 9) {
+            System.out.print("Entre com d [0-9]: ");
+            d = scanner.nextInt();
+        }
+
+        System.out.println(
+                "Imprimindo os " + n +
+                " primeiros números com " + m +
+                " dígitos " + d);
+
+        int contador = 1;
+        int numero = 0;
+
+        char charD = Integer.toString(d).charAt(0);
+
+        while (contador <= n) {
+            String strNum = Integer.toString(numero);
+
+            long countDigitos = strNum.chars().filter(ch -> ch == charD).count();
+
+            if (countDigitos == m) {
+                System.out.println(numero);
+                contador++;
+            }
+            numero++;
+
+        }
+
     }
 }
